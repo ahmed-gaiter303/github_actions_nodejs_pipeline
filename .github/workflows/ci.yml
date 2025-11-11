@@ -11,13 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
 
       - name: Install dependencies
         run: npm install
@@ -27,3 +27,6 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t nodejs-pipeline-app .
+
+      - name: Verify build success
+        run: echo "Build completed successfully ✅"
